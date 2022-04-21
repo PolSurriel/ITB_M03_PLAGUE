@@ -6,6 +6,9 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.window.rememberWindowState
 import theplague.interfaces.IWorld
 import theplague.logic.World
+import theplague.ui.console.DefaultIcon
+import theplague.ui.console.Player
+import theplague.ui.console.Territory
 import theplague.ui.gui.MainScreen
 
 
@@ -17,4 +20,8 @@ fun main() = application {
     }
 }
 
-fun createWorld(): IWorld = World()
+fun createWorld(): IWorld = World(
+    8,
+    8,
+    List<List<Territory>>(8){ List<Territory>(8){Territory()} },
+    Player(10, 9999, DefaultIcon("P"), DefaultIcon("V")))
