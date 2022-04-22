@@ -20,8 +20,25 @@ fun main() = application {
     }
 }
 
-fun createWorld(): IWorld = World(
-    8,
-    8,
-    List<List<Territory>>(8){ List<Territory>(8){Territory()} },
-    Player(10, 9999, DefaultIcon("P"), DefaultIcon("V")))
+fun createWorld(): IWorld {
+
+    val width = 8;
+    val height = 8;
+
+    val territories: List<List<Territory>> = List<List<Territory>>(height){
+
+        List<Territory>(width){
+            Territory()
+        }
+    }
+
+
+    val player = Player(10, 9999, DefaultIcon("P"),DefaultIcon("V"));
+
+
+    val world = World(width,height,territories, player)
+
+    return world
+
+
+}

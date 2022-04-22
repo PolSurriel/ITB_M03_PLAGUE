@@ -6,16 +6,14 @@ import theplague.interfaces.Iconizable
 import theplague.logic.World
 import java.util.*
 
-/*
-*    override val width: Int,
-    override val height: Int,
-    override val territories: List<List<ITerritory>>,
-    override val player: IPlayer
-* */
+
 
 class Territory : ITerritory{
+
+
     override fun iconList(): List<Iconizable> {
-        return  List<Iconizable>(1){DefaultIcon("X")}
+        //return  List<Iconizable>(1){DefaultIcon("Y")}
+        return listOf(DefaultIcon("1"), DefaultIcon("2"))
     }
 }
 

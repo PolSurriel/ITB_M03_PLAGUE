@@ -3,7 +3,6 @@ package theplague.logic
 import theplague.interfaces.*
 import theplague.ui.console.DefaultIcon
 
-
 class World(
     override val width: Int,
     override val height: Int,
