@@ -3,32 +3,11 @@ package theplague.ui.console
 import theplague.interfaces.IPlayer
 import theplague.interfaces.ITerritory
 import theplague.interfaces.Iconizable
+import theplague.logic.DefaultIcon
+import theplague.logic.Player
+import theplague.logic.Territory
 import theplague.logic.World
 import java.util.*
-
-
-
-class Territory : ITerritory{
-
-
-    override fun iconList(): List<Iconizable> {
-        //return  List<Iconizable>(1){DefaultIcon("Y")}
-        return listOf(DefaultIcon("1"), DefaultIcon("2"))
-    }
-}
-
-class Player(
-    override val turns: Int,
-    override val livesLeft: Int,
-    override val currentWeapon: Iconizable,
-    override val currentVehicle: Iconizable
-) : IPlayer {
-
-}
-
-class DefaultIcon(override val icon: String) : Iconizable {
-
-}
 
 
 fun main() {
@@ -36,8 +15,10 @@ fun main() {
     val width = 8;
     val height = 8;
 
-    val defaultValueList = List<String>(10) {"I am default"}
-
+    // ["hola", "hola", "hola"]
+    val strList : List<List<String>> = List<List<String>>(3){
+        List<String>(3){"hola"}
+    }
     val territories: List<List<Territory>> = List<List<Territory>>(height){
 
         List<Territory>(width){

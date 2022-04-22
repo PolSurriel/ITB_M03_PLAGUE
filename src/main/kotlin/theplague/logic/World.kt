@@ -1,7 +1,39 @@
 package theplague.logic
 
 import theplague.interfaces.*
-import theplague.ui.console.DefaultIcon
+
+
+
+class Territory : ITerritory{
+
+    val icons : MutableList<Iconizable> =  List<Iconizable>(1){DefaultIcon(" ")}.toMutableList()
+
+
+    override fun iconList(): List<Iconizable> {
+        //return  List<Iconizable>(1){DefaultIcon(" ")}
+        //return listOf(DefaultIcon("1"), DefaultIcon("2"))
+        return icons.toList()
+    }
+}
+
+class Player(
+    override val turns: Int,
+    override val livesLeft: Int,
+    override val currentWeapon: Iconizable,
+    override val currentVehicle: Iconizable
+) : IPlayer, Iconizable {
+
+    public var position :Position = Position(0,0);
+    override val icon: String
+        get() = "P"
+
+}
+
+class DefaultIcon(override val icon: String) : Iconizable {
+
+}
+
+
 
 class World(
     override val width: Int,
@@ -25,16 +57,25 @@ class World(
     }
 
     override fun moveTo(position: Position) {
-        //TODO("Not yet implemented")
+
+        val lastTerr : Territory = territories[(player as Player).position.y][(player as Player).position.x] as Territory;
+        val terr : Territory = territories[position.y][position.x] as Territory;
+
+        terr.icons.add(player as Player);
+        lastTerr.icons.remove(player as Player)
+        player.position = Position(position.x, position.y)
+
     }
 
     override fun exterminate() {
         //TODO("Not yet implemented")
+        println("exterminate")
+
     }
 
     override fun takeableItem(): Iconizable? {
         //TODO("Not yet implemented")
-        return DefaultIcon("D")
+        return null
     }
 
     override fun takeItem() {
