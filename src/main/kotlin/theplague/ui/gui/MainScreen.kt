@@ -11,6 +11,7 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.setValue
 import theplague.interfaces.*
 import kotlinx.coroutines.channels.Channel
+import theplague.logic.Item
 
 @ExperimentalMaterialApi
 @Composable
@@ -69,7 +70,7 @@ fun MainScreen(world: IWorld) {
                                             pickItemDialog = item
                                             val take = pickItemChannel.receive()
                                             if (take)
-                                                currentWorld.takeItem()
+                                                currentWorld.takeItem(item as Item)
                                         }
                                         currentWorld.exterminate()
                                         currentWorld.nextTurn()

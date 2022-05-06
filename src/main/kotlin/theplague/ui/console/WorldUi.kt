@@ -4,6 +4,7 @@ import theplague.interfaces.ITerritory
 import theplague.interfaces.IWorld
 import theplague.interfaces.Iconizable
 import theplague.interfaces.Position
+import theplague.logic.Item
 import java.util.*
 
 class WorldUi(val scanner: Scanner = Scanner(System.`in`), val world: IWorld){
@@ -44,7 +45,7 @@ class WorldUi(val scanner: Scanner = Scanner(System.`in`), val world: IWorld){
         val item = world.takeableItem()
         if(item!=null){
             if(queryTakeItem(item))
-                world.takeItem()
+                world.takeItem(item as Item)
         }
         world.exterminate()
         world.nextTurn()

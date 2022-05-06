@@ -1,5 +1,7 @@
 package theplague.interfaces
 
+import theplague.logic.Item
+
 interface IWorld{
     val width: Int
     val height: Int
@@ -43,5 +45,5 @@ interface IWorld{
     /**
      * The player takes the item
      */
-    fun takeItem()
+    fun takeItem(item : Item)
 }

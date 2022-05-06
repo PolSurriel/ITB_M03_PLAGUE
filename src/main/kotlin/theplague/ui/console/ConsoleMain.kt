@@ -15,20 +15,15 @@ fun main() {
     val width = 8;
     val height = 8;
 
-    // ["hola", "hola", "hola"]
-    val strList : List<List<String>> = List<List<String>>(3){
-        List<String>(3){"hola"}
-    }
     val territories: List<List<Territory>> = List<List<Territory>>(height){
-
         List<Territory>(width){
             Territory()
         }
     }
 
 
-    val player = Player(10, 9999, DefaultIcon("P"),DefaultIcon("V"));
-
+    val player = Player(10, 9999, DefaultIcon("P"));
+    territories[player.position.y][player.position.x].icons.add(player);
 
     val world = World(width,height,territories, player)
     val scanner = Scanner(System.`in`)

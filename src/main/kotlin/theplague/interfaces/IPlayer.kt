@@ -1,6 +1,6 @@
 package theplague.interfaces
 
-interface IPlayer {
+interface IPlayer : Iconizable{
     /**
      * Turns that the player has lived
      */
@@ -11,10 +11,13 @@ interface IPlayer {
     /**
      * The player current weapon
      */
-    val currentWeapon : Iconizable
+    var currentWeapon : Iconizable
 
     /**
      * The player current vehicle
      */
-    val currentVehicle : Iconizable
+    var currentVehicle : Iconizable
+
+    public var position :Position;
+
 }

@@ -5,10 +5,7 @@ import androidx.compose.ui.window.application
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.window.rememberWindowState
 import theplague.interfaces.IWorld
-import theplague.logic.DefaultIcon
-import theplague.logic.Player
-import theplague.logic.Territory
-import theplague.logic.World
+import theplague.logic.*
 import theplague.ui.gui.MainScreen
 
 
@@ -26,14 +23,17 @@ fun createWorld(): IWorld {
     val height = 8;
 
     val territories: List<List<Territory>> = List<List<Territory>>(height){
-
         List<Territory>(width){
             Territory()
         }
     }
 
+    territories[3][4].addIcon(Helicopter());
 
-    val player = Player(10, 9999, DefaultIcon("P"),DefaultIcon("V"));
+    territories[3][5].addIcon(Sword());
+
+    val player = Player(10, 9999, DefaultIcon("P"));
+    territories[player.position.y][player.position.x].icons.add(player);
 
     val world = World(width,height,territories, player)
 
