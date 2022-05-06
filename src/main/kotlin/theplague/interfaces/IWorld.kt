@@ -23,6 +23,10 @@ interface IWorld{
      */
     fun gameFinished(): Boolean
 
+    fun reproduceAndExpand() {
+
+    }
+
     /**
      * Returns true if the player can move to the given position using the current vehicle
      */

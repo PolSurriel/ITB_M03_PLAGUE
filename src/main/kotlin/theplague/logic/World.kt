@@ -18,6 +18,32 @@ class World(
         println("nex turn started")
     }
 
+    /*
+    * Vamos a dar por hecho que creareis un atributo MutableList con todas las colonias creadas
+    * de tipo List<Colonization>
+    *
+    * */
+    override fun reproduceAndExpand(){
+        /*
+        * foreach Colonization {
+        *
+        *   if (!needsToExpand()){
+        *       var newColonization = it.colony.expand();
+        *
+        *       // hacer los corresponmdientes ifs para ver si:
+        *       // A: La posicion destino esta libre
+        *       // B: Si el otro tipo es mas debil nos cargamos la colonia anterior
+        *   }else {
+        *       it.colony.reproduce()
+        *   }
+        *
+        *
+        * }
+        *
+        *
+        * */
+    }
+
     override fun gameFinished(): Boolean {
         println("game finish checked")
         return player.livesLeft == 0;
